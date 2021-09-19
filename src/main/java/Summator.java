@@ -28,7 +28,7 @@ public class Summator extends RecursiveTask<Integer> {
     private int forkTasksAndGetResult() {
         final int middle =(end - start)/2+ start;
         Summator task1 = new Summator(start, middle, array);
-        Summator task2 =new Summator(middle, end, array);
+        Summator task2 = new Summator(middle, end, array);
         invokeAll(task1, task2);
         return task1.join()+ task2.join();
     }
